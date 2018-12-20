@@ -100,95 +100,110 @@ public class Questions extends AppCompatActivity {
 
         listAnswers.put(0, answersForOne);
 
-        answersForOne[0] = new String[]{"0", "am forgot"};
-        answersForOne[1] = new String[]{"0", "has forgotten"};
-        answersForOne[2] = new String[]{"1", "forgot"};
+        String[][] answersForOne1 = new String[3][2];
+        answersForOne1[0] = new String[]{"0", "am forgot"};
+        answersForOne1[1] = new String[]{"0", "has forgotten"};
+        answersForOne1[2] = new String[]{"1", "forgot"};
 
-        listAnswers.put(1, answersForOne);
+        listAnswers.put(1, answersForOne1);
 
-        answersForOne[0] = new String[]{"1", "applied"};
-        answersForOne[1] = new String[]{"0", "am applied"};
-        answersForOne[2] = new String[]{"0", "apply"};
+        String[][] answersForOne2 = new String[3][2];
+        answersForOne2[0] = new String[]{"1", "applied"};
+        answersForOne2[1] = new String[]{"0", "am applied"};
+        answersForOne2[2] = new String[]{"0", "apply"};
 
-        listAnswers.put(2, answersForOne);
+        listAnswers.put(2, answersForOne2);
 
-        answersForOne[0] = new String[]{"1", "was"};
-        answersForOne[1] = new String[]{"0", "are"};
-        answersForOne[2] = new String[]{"0", "were"};
+        String[][] answersForOne3 = new String[3][2];
+        answersForOne3[0] = new String[]{"1", "was"};
+        answersForOne3[1] = new String[]{"0", "are"};
+        answersForOne3[2] = new String[]{"0", "were"};
 
-        listAnswers.put(3, answersForOne);
+        listAnswers.put(3, answersForOne3);
 
-        answersForOne[0] = new String[]{"1", "while"};
-        answersForOne[1] = new String[]{"0", "too"};
-        answersForOne[2] = new String[]{"0", "finally"};
+        String[][] answersForOne4 = new String[3][2];
+        answersForOne4[0] = new String[]{"1", "while"};
+        answersForOne4[1] = new String[]{"0", "too"};
+        answersForOne4[2] = new String[]{"0", "finally"};
 
-        listAnswers.put(4, answersForOne);
+        listAnswers.put(4, answersForOne4);
 
-        answersForOne[0] = new String[]{"0", "here"};
-        answersForOne[1] = new String[]{"1", "simultaneously"};
-        answersForOne[2] = new String[]{"0", "beyond"};
+        String[][] answersForOne5 = new String[3][2];
+        answersForOne5[0] = new String[]{"0", "here"};
+        answersForOne5[1] = new String[]{"1", "simultaneously"};
+        answersForOne5[2] = new String[]{"0", "beyond"};
 
-        listAnswers.put(5, answersForOne);
+        listAnswers.put(5, answersForOne5);
 
-        answersForOne[0] = new String[]{"0", "however"};
-        answersForOne[1] = new String[]{"0", "at the same time"};
-        answersForOne[2] = new String[]{"1", "because"};
+        String[][] answersForOne6 = new String[3][2];
+        answersForOne6[0] = new String[]{"0", "however"};
+        answersForOne6[1] = new String[]{"0", "at the same time"};
+        answersForOne6[2] = new String[]{"1", "because"};
 
-        listAnswers.put(6, answersForOne);
+        listAnswers.put(6, answersForOne6);
 
-        answersForOne[0] = new String[]{"0", "for geography places"};
-        answersForOne[1] = new String[]{"1", "to refer to a whole group of people."};
-        answersForOne[2] = new String[]{"0", "for proper names"};
+        String[][] answersForOne7 = new String[3][2];
+        answersForOne7[0] = new String[]{"0", "for geography places"};
+        answersForOne7[1] = new String[]{"1", "to refer to a whole group of people."};
+        answersForOne7[2] = new String[]{"0", "for proper names"};
 
-        listAnswers.put(7, answersForOne);
+        listAnswers.put(7, answersForOne7);
 
-        answersForOne[0] = new String[]{"1", "determine a thing or a person already known by speakers"};
-        answersForOne[1] = new String[]{"0", "determine a thing already known by speakers"};
-        answersForOne[2] = new String[]{"0", "determine a person already known by speakers"};
+        String[][] answersForOne8 = new String[3][2];
+        answersForOne8[0] = new String[]{"1", "determine a thing or a person already known by speakers"};
+        answersForOne8[1] = new String[]{"0", "determine a thing already known by speakers"};
+        answersForOne8[2] = new String[]{"0", "determine a person already known by speakers"};
 
-        listAnswers.put(8, answersForOne);
+        listAnswers.put(8, answersForOne8);
 
-        answersForOne[0] = new String[]{"1", "yes"};
-        answersForOne[1] = new String[]{"0", "no"};
-        answersForOne[2] = new String[]{"0", "I don´t know"};
+        String[][] answersForOne9 = new String[3][2];
+        answersForOne9[0] = new String[]{"1", "yes"};
+        answersForOne9[1] = new String[]{"0", "no"};
+        answersForOne9[2] = new String[]{"0", "I don´t know"};
 
-        listAnswers.put(9, answersForOne);
+        listAnswers.put(9, answersForOne9);
 
-        answersForOne[0] = new String[]{"0", "yes"};
-        answersForOne[1] = new String[]{"1", "no"};
-        answersForOne[2] = new String[]{"0", "may be"};
+        String[][] answersForOne10 = new String[3][2];
+        answersForOne10[0] = new String[]{"0", "yes"};
+        answersForOne10[1] = new String[]{"1", "no"};
+        answersForOne10[2] = new String[]{"0", "may be"};
 
-        listAnswers.put(10, answersForOne);
+        listAnswers.put(10, answersForOne10);
 
-        answersForOne[0] = new String[]{"1", "subject + verb infinitive"};
-        answersForOne[1] = new String[]{"0", "subject + verb ing"};
-        answersForOne[2] = new String[]{"0", "subject + to be + verb ing"};
+        String[][] answersForOne11= new String[3][2];
+        answersForOne11[0] = new String[]{"1", "subject + verb infinitive"};
+        answersForOne11[1] = new String[]{"0", "subject + verb ing"};
+        answersForOne11[2] = new String[]{"0", "subject + to be + verb ing"};
 
-        listAnswers.put(11, answersForOne);
+        listAnswers.put(11, answersForOne11);
 
-        answersForOne[0] = new String[]{"0", "subject +to have + infinitive"};
-        answersForOne[1] = new String[]{"0", "verb to be + infinitive"};
-        answersForOne[2] = new String[]{"1", "subject + verb"};
+        String[][] answersForOne12 = new String[3][2];
+        answersForOne12[0] = new String[]{"0", "subject +to have + infinitive"};
+        answersForOne12[1] = new String[]{"0", "verb to be + infinitive"};
+        answersForOne12[2] = new String[]{"1", "subject + verb"};
 
-        listAnswers.put(12, answersForOne);
+        listAnswers.put(12, answersForOne12);
 
-        answersForOne[0] = new String[]{"0", "english"};
-        answersForOne[1] = new String[]{"0", "american"};
-        answersForOne[2] = new String[]{"1", "both"};
+        String[][] answersForOne13 = new String[3][2];
+        answersForOne13[0] = new String[]{"0", "english"};
+        answersForOne13[1] = new String[]{"0", "american"};
+        answersForOne13[2] = new String[]{"1", "both"};
 
-        listAnswers.put(13, answersForOne);
+        listAnswers.put(13, answersForOne13);
 
-        answersForOne[0] = new String[]{"0", "english"};
-        answersForOne[1] = new String[]{"1", "american"};
-        answersForOne[2] = new String[]{"0", "both"};
+        String[][] answersForOne14 = new String[3][2];
+        answersForOne14[0] = new String[]{"0", "english"};
+        answersForOne14[1] = new String[]{"1", "american"};
+        answersForOne14[2] = new String[]{"0", "both"};
 
-        listAnswers.put(14, answersForOne);
+        listAnswers.put(14, answersForOne14);
 
-        answersForOne[0] = new String[]{"1", "english"};
-        answersForOne[1] = new String[]{"0", "american"};
-        answersForOne[2] = new String[]{"0", "both"};
+        String[][] answersForOne15 = new String[3][2];
+        answersForOne15[0] = new String[]{"1", "english"};
+        answersForOne15[1] = new String[]{"0", "american"};
+        answersForOne15[2] = new String[]{"0", "both"};
 
-        listAnswers.put(15, answersForOne);
+        listAnswers.put(15, answersForOne15);
 
     }
     ///////////////////////////////////
