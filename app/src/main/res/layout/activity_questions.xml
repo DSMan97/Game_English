@@ -139,4 +139,40 @@
         tools:layout_editor_absoluteX="216dp"
         tools:layout_editor_absoluteY="119dp" />
 
+    <TextView
+        android:id="@+id/score1"
+        android:layout_width="29dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="0"
+        android:textSize="36sp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btna1"
+        app:layout_constraintVertical_bias="0.53" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="34dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="0"
+        android:textSize="36sp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintStart_toEndOf="@+id/score1"
+        app:layout_constraintTop_toBottomOf="@+id/btna3"
+        app:layout_constraintVertical_bias="0.321" />
+
 </android.support.constraint.ConstraintLayout>
