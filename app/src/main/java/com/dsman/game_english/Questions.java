@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.security.KeyStore;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,14 +29,15 @@ public class Questions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
 
-    ///////////////////////////////////
+        ///////////////////////////////////
         setDataPrueba();
-     ///////////////////////////////////
+        ///////////////////////////////////
 
         // getViewByID
         btnR1 = findViewById(R.id.btna1);
         btnR2 = findViewById(R.id.btna2);
         btnR3 = findViewById(R.id.btna3);
+        question = findViewById(R.id.textView);
 
         // Listener Buttons
         setListeners();
@@ -67,16 +69,32 @@ public class Questions extends AppCompatActivity {
     private void getRandomQuestion(){
 
         int numRandom = (int) (Math.random() * (listAnswers.size()- 1));
-        String asw1 = "";
-        String asw2 = "";
-        String asw3 = "";
+        int numIndex = 0;
+
 
         // get random answers
+        // Get random Index with listQuestions because have less information for read
+        for (Map.Entry allAsw: listQuestions.entrySet()){
+            allAsw.getKey();
+            if (numRandom == (int) allAsw.getKey()){
+                numIndex = (int) allAsw.getKey();
 
-        // HashMap < Integer, ["falso/cierto", "pregunta"]>
-        for (String[][] asw: listAnswers.values() ){
-            if (numRandom == Integer.parseInt(asw[0][0])){
-                asw1 = asw[0][1];
+            }
+        }
+
+        // Get question for the random Index
+        for (String quest : listQuestions.values()){
+            if (numRandom == numIndex) {
+                question.setText(quest);
+            }
+        }
+
+        // Get values for the random Index
+        for (String[][] asw: listAnswers.values()){
+            if (numRandom == numIndex){
+                btnR1.setText(asw[0][1]);
+                btnR2.setText(asw[1][1]);
+                btnR3.setText(asw[2][1]);
             }
         }
     }
