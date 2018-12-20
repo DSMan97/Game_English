@@ -2,6 +2,7 @@ package com.dsman.game_english;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +23,7 @@ public class Questions extends AppCompatActivity {
     private  TextView counterP1,counterP2;
     private int score1, score2;
     private int numberQuestion;
+    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class Questions extends AppCompatActivity {
         setDataPrueba();
         ///////////////////////////////////
 
+        mp = MediaPlayer.create(this, R.raw.music);
         // getViewByID
         btnR1 = findViewById(R.id.btna1);
         btnR2 = findViewById(R.id.btna2);
@@ -152,9 +155,9 @@ public class Questions extends AppCompatActivity {
         listAnswers.put(7, answersForOne7);
 
         String[][] answersForOne8 = new String[3][2];
-        answersForOne8[0] = new String[]{"1", "determine a thing or a person already known by speakers"};
-        answersForOne8[1] = new String[]{"0", "determine a thing already known by speakers"};
-        answersForOne8[2] = new String[]{"0", "determine a person already known by speakers"};
+        answersForOne8[0] = new String[]{"1", "thing or a person already known by speakers"};
+        answersForOne8[1] = new String[]{"0", "thing already known by speakers"};
+        answersForOne8[2] = new String[]{"0", "person already known by speakers"};
 
         listAnswers.put(8, answersForOne8);
 
@@ -252,14 +255,19 @@ public class Questions extends AppCompatActivity {
                 Log.d("debugggggerrrrr", listAnswers.get(allAsw.getKey()).toString());
                 String [][] pregunta = listAnswers.get(allAsw.getKey());
 
-                if (Integer.parseInt(pregunta[nBtnQuest][0]) == 1){
+                //if (Integer.parseInt(pregunta[nBtnQuest][0]) == 1 || Integer.parseInt(pregunta[nBtnQuest][1]) == 1 || Integer.parseInt(pregunta[nBtnQuest][2]) == 1){
+                if (pregunta[nBtnQuest][0].equals("1")){
+                getCorrect();
                     showResult("Correct");
+                    mp.start();
                     String res1 = Integer.toString(score1 += 1);
                     counterP1.setText(res1);
                     getRandomQuestion();
 
                 } else {
+                    getWrong();
                     showResult("Wrong");
+                    mp.start();
                     String res2 = Integer.toString(score2 += 1);
                     counterP2.setText(res2);
                     getRandomQuestion();
@@ -272,9 +280,13 @@ public class Questions extends AppCompatActivity {
 
     private void haveFive(){
         if (score1 >= 5){
+            getWin();
+            mp.start();
             showResult("WIN !!!!!!");
             goToMain();
         } else if (score2 >= 5){
+            getLose();
+            mp.start();
             showResult("LOSE !!!!!!");
             goToMain();
         }
@@ -291,5 +303,18 @@ public class Questions extends AppCompatActivity {
 
         Toast toast = Toast.makeText(context, result, duration);
         toast.show();
+    }
+
+    private  void getWin(){
+        mp = MediaPlayer.create(this, R.raw.win);
+    }
+    private  void getLose(){
+        mp = MediaPlayer.create(this, R.raw.lose);
+    }
+    private void getCorrect(){
+        mp = MediaPlayer.create(this, R.raw.correct);
+    }
+    private void getWrong(){
+        mp = MediaPlayer.create(this, R.raw.wrong);
     }
 }

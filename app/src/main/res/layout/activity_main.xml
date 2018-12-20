@@ -9,13 +9,13 @@
 
     <Button
         android:id="@+id/btnStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="176dp"
+        android:layout_height="56dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="202dp"
-        android:layout_marginBottom="261dp"
+        android:layout_marginBottom="253dp"
         android:background="@android:color/holo_orange_dark"
         android:text="Start" />
 </RelativeLayout>
