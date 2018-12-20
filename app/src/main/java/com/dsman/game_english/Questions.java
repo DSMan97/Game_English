@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Questions extends AppCompatActivity {
-    private List<String> preguntas = new ArrayList<>();
-    private List<String []> prespuestas = new ArrayList<>();
+    private List<String> preguntas;
+    private List<String []> respuestas;
 
     private Button btnR1, btnR2, btnR3;
     private TextView question;
@@ -22,6 +22,10 @@ public class Questions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
 
+    ///////////////////////////////////
+        setDataPrueba();
+     ///////////////////////////////////
+
         // getViewByID
         btnR1 = findViewById(R.id.btna1);
         btnR2 = findViewById(R.id.btna2);
@@ -29,8 +33,19 @@ public class Questions extends AppCompatActivity {
 
         // Listener Buttons
         setListeners();
-
     }
+
+    ///////////////////////////////////
+    private void setDataPrueba(){
+        preguntas = new ArrayList<>();
+        preguntas.add("primera pregunta");
+
+        respuestas = new ArrayList<>();
+        respuestas.add( new String[]{"1", "1º respuesta"});
+        respuestas.add( new String[]{"0", "2º respuesta"});
+        respuestas.add( new String[]{"0", "3º respuesta"});
+    }
+    ///////////////////////////////////
 
     private void setListeners(){
         btnR1.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +66,6 @@ public class Questions extends AppCompatActivity {
                 onClickAnswer(3);
             }
         });
-
     }
 
     private void onClickAnswer (int nPreg){
