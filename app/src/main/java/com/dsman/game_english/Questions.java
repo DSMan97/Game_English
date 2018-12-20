@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -50,6 +51,7 @@ public class Questions extends AppCompatActivity {
         listQuestions = new HashMap<>();
         listQuestions.put(1, "primera pregunta");
 
+
         listAnswers = new HashMap<>();
         String[][] answersForOne = new String[3][2];
 
@@ -72,9 +74,9 @@ public class Questions extends AppCompatActivity {
         // get random answers
 
         // HashMap < Integer, ["falso/cierto", "pregunta"]>
-        for (Map.Entry asw: listAnswers.entrySet() ){
-            if (numRandom == Integer.parseInt(asw.getValue().toString())){
-//                asw1 =
+        for (String[][] asw: listAnswers.values() ){
+            if (numRandom == Integer.parseInt(asw[0][0])){
+                asw1 = asw[0][1];
             }
         }
     }
