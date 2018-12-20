@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +21,8 @@ public class Questions extends AppCompatActivity {
     private TextView question;
     private  TextView counterP1,counterP2;
     private int score1, score2;
+    private int numberQuestion;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,8 +66,6 @@ public class Questions extends AppCompatActivity {
             }
         });
     }
-
-    ///////////////////////////////////
 
     // guarda las respuestas en un hashmap <n preg, preg>
     // guarda las respuestas en un hashmap <n preg, arr de preg + boolean verdadero o falso>
@@ -207,38 +208,38 @@ public class Questions extends AppCompatActivity {
         listAnswers.put(15, answersForOne15);
 
     }
-    ///////////////////////////////////
+
 
     // Get data in ArrayLists in random position
     private void getRandomQuestion(){
 
-        int numRandom = (int) (Math.random() * (listAnswers.size()- 1));
+        numberQuestion = (int) (Math.random() * (listAnswers.size()- 1));
         int numIndex = 0;
 
         // get random answers
         // Get random Index with listQuestions because have less information for read
         for (Map.Entry allAsw: listQuestions.entrySet()){
-            if (numRandom == (int) allAsw.getKey()){
+            if (numberQuestion == (int) allAsw.getKey()){
 
                 // Get question for the random Index
                 for (String quest : listQuestions.values()){
-                    if (numRandom == numIndex) {
+                    if (numberQuestion == numIndex) {
                         Log.d("debuggggg" , numIndex + " " + quest);
                         question.setText(quest);
                     }
-                        numIndex++;
+                    numIndex++;
                 }
 
                 numIndex = 0;
                 // Get values for the random Index
                 for (String[][] asw: listAnswers.values()){
-                    if (numRandom == numIndex){
+                    if (numberQuestion == numIndex){
                         Log.d("debuggggg" , numIndex + " " + asw[0][1] + " " + asw[1][1] + " " + asw[2][1]);
                         btnR1.setText(asw[0][1]);
                         btnR2.setText(asw[1][1]);
                         btnR3.setText(asw[2][1]);
                     }
-                        numIndex++;
+                    numIndex++;
                 }
             }
         }
@@ -246,28 +247,34 @@ public class Questions extends AppCompatActivity {
 
     private void onClickAnswer (int nBtnQuest){
 
+        for (Map.Entry allAsw: listQuestions.entrySet()){
+            if (numberQuestion == (int) allAsw.getKey()){
+                Log.d("debugggggerrrrr", listAnswers.get(allAsw.getKey()).toString());
+                String [][] pregunta = listAnswers.get(allAsw.getKey());
 
-        for (String[][] asw: listAnswers.values()){
-            if (Integer.parseInt(asw[nBtnQuest][0]) == 1){
-                showResult("Correct");
-                counterP1.setText(Integer.toString(score1=+1));
-                getRandomQuestion();
+                if (Integer.parseInt(pregunta[nBtnQuest][0]) == 1){
+                    showResult("Correct");
+                    String res1 = Integer.toString(score1 += 1);
+                    counterP1.setText(res1);
+                    getRandomQuestion();
 
-            } else {
-                showResult("Wrong");
-                counterP2.setText(Integer.toString(score2=+1));
-                getRandomQuestion();
+                } else {
+                    showResult("Wrong");
+                    String res2 = Integer.toString(score2 += 1);
+                    counterP2.setText(res2);
+                    getRandomQuestion();
+                }
             }
         }
 
         haveFive();
     }
 
-    private void haveFive() {
-        if (score1 == 5){
+    private void haveFive(){
+        if (score1 >= 5){
             showResult("WIN !!!!!!");
-           goToMain();
-        } else if (score2 == 5){
+            goToMain();
+        } else if (score2 >= 5){
             showResult("LOSE !!!!!!");
             goToMain();
         }
