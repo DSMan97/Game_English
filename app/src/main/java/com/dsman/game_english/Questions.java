@@ -1,21 +1,14 @@
 package com.dsman.game_english;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import java.security.KeyStore;
-import java.util.ArrayList;
+import android.widget.Toast;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import static android.icu.lang.UProperty.MATH;
 
 public class Questions extends AppCompatActivity {
     private HashMap<Integer, String> listQuestions;
@@ -44,6 +37,27 @@ public class Questions extends AppCompatActivity {
         getRandomQuestion();
     }
 
+    private void setListeners(){
+        btnR1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickAnswer(0);
+            }
+        });
+        btnR2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickAnswer(1);
+            }
+        });
+        btnR3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickAnswer(2);
+            }
+        });
+    }
+
     ///////////////////////////////////
 
     // guarda las respuestas en un hashmap <n preg, preg>
@@ -55,6 +69,8 @@ public class Questions extends AppCompatActivity {
 
 
         listAnswers = new HashMap<>();
+
+
         String[][] answersForOne = new String[3][2];
 
         answersForOne[0] = new String[]{"1", "1º respuesta"};
@@ -62,6 +78,7 @@ public class Questions extends AppCompatActivity {
         answersForOne[2] = new String[]{"0", "3º respuesta"};
 
         listAnswers.put(1, answersForOne);
+
     }
     ///////////////////////////////////
 
@@ -78,7 +95,6 @@ public class Questions extends AppCompatActivity {
             allAsw.getKey();
             if (numRandom == (int) allAsw.getKey()){
                 numIndex = (int) allAsw.getKey();
-
             }
         }
 
@@ -99,41 +115,23 @@ public class Questions extends AppCompatActivity {
         }
     }
 
-    private void setDataInView(String asw1, String asw2, String asw3){
-        btnR1.setText(asw1);
-        btnR2.setText(asw2);
-        btnR3.setText(asw3);
+    private void onClickAnswer (int nBtnQuest){
+
+        for (String[][] asw: listAnswers.values()){
+            if (Integer.parseInt(asw[nBtnQuest][0]) == 1){
+                showResult("ACERTASTES");
+            } else {
+                showResult("FALLASTES");
+            }
+        }
     }
 
-    private void setListeners(){
-        btnR1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClickAnswer(1);
-            }
-        });
-        btnR2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClickAnswer(2);
-            }
-        });
-        btnR3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClickAnswer(3);
-            }
-        });
-    }
+    private void showResult(String result){
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
 
-    private void onClickAnswer (int nPreg){
-
-
-
-    }
-
-    private void showResult(){
-
+        Toast toast = Toast.makeText(context, result, duration);
+        toast.show();
     }
 
     private void doAnimation(){
