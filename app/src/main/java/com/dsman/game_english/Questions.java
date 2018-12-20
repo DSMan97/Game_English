@@ -1,6 +1,7 @@
 package com.dsman.game_english;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -257,8 +258,24 @@ public class Questions extends AppCompatActivity {
                 counterP2.setText(Integer.toString(score2=+1));
                 getRandomQuestion();
             }
-
         }
+
+        haveFive();
+    }
+
+    private void haveFive() {
+        if (score1 == 5){
+            showResult("WIN !!!!!!");
+           goToMain();
+        } else if (score2 == 5){
+            showResult("LOSE !!!!!!");
+            goToMain();
+        }
+    }
+
+    private void goToMain(){
+        Intent navigate = new Intent(Questions.this, MainActivity.class);
+        startActivity(navigate);
     }
 
     private void showResult(String result){
@@ -267,9 +284,5 @@ public class Questions extends AppCompatActivity {
 
         Toast toast = Toast.makeText(context, result, duration);
         toast.show();
-    }
-
-    private void doAnimation(){
-
     }
 }
